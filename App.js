@@ -7,7 +7,7 @@ import SignUpScreen from './Src/Screens/Sign_Up/SignUpScreen';
 const App = ()=> {
   return (
     <SafeAreaView style={styles.container}>
-     <SignInScreen />
+     <SignUpScreen />
     </SafeAreaView>
   );
 }
