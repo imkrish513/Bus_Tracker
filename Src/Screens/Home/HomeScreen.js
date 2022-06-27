@@ -4,10 +4,9 @@ import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
 
 const HomeScreen = ()=> {
   return (
-  <view>
-
-    
-  </view>
+  <View>
+    <Text>hi</Text>
+  </View>
   );
 }
 
