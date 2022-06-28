@@ -7,9 +7,9 @@ import {
   ScrollView,
   useWindowDimensions,
 } from 'react-native';
-import Logo from '../../../assets/images/Logo.png';
-import CustomInput from '../../Components/CustomInput';
-import CustomButton from '../../Components/CustomButton/CustomButton';
+import Logo from '../../../../assets/images/Logo.png'
+import CustomInput from '../../../Components/CustomInput';
+import CustomButton from '../../../Components/CustomButton/CustomButton';
 
 const SignInScreen = () => {
   const [username, setUsername] = useState('');
