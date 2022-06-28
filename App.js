@@ -8,7 +8,11 @@ import BusCode from './Src/Screens/Home/BusCode'
 const App = ()=> {
   return (
     <SafeAreaView style={styles.container}>
+<<<<<<< Updated upstream
      <BusCode />
+=======
+     <SignUpScreen />
+>>>>>>> Stashed changes
     </SafeAreaView>
   );
 }
