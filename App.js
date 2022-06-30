@@ -11,7 +11,7 @@ import Home from './Src/Screens/Home';
 const App = ()=> {
   return (
     <SafeAreaView style={styles.container}>
-     <HomeScreen />
+     <Code />
     </SafeAreaView>
   );
 }
