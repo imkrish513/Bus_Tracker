@@ -9,11 +9,12 @@ import {
 import CustomButton from '../../../Components/CustomButton/CustomButton';
 import CustomInput from '../../../Components/CustomInput';
 
-const ForgotPassword = () => {
-  const [email, setEmail] = useState('');
+const NewPassword = () => {
+  const [code, setCode] = useState('');
+  const [password, setPassword] = useState('');
 
 
-  const OnSendPressed = () => {
+  const OnSubmitPressed = () => {
       console.warn("Sign In Pressed")
   }
 
@@ -29,17 +30,25 @@ const ForgotPassword = () => {
       </Text>
 
       <CustomInput
-        placeholder="Email"
-        value={email}
-        setValue={setEmail}
+        placeholder="Enter your confirmation code"
+        value={code}
+        setValue={setCode}
+        secureTextEntry={false}
+        color = '#8e8e8e'
+      />
+
+        <CustomInput
+        placeholder="Enter your new password"
+        value={password}
+        setValue={setPassword}
         secureTextEntry={false}
         color = '#8e8e8e'
       />
 
 
       <CustomButton 
-      text = "Send"
-      onPress = {OnSendPressed}
+      text = "Submit"
+      onPress = {OnSubmitPressed}
       type = 'PRIMARY'
       />
 
@@ -75,4 +84,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ForgotPassword;
+export default NewPassword;

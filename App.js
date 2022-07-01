@@ -6,12 +6,12 @@ import SignUpScreen from './Src/Screens/Authentication/Sign_Up/SignUpScreen';
 import HomeScreen from './Src/Screens/Home/HomeScreen';
 import Code from './Src/Screens/Authentication/BusCode/BusCode'
 import ForgotPassword from './Src/Screens/Authentication/Forgot_Password/forgotPassword';
-import NewPassword from './Src/Screens/Authentication/NewPassword';
+import NewPassword from './Src/Screens/Authentication/NewPasswordScreen';
 import Home from './Src/Screens/Home';
 const App = ()=> {
   return (
     <SafeAreaView style={styles.container}>
-     <Code />
+     <NewPassword />
     </SafeAreaView>
   );
 }
