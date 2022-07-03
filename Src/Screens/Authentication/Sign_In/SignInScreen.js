@@ -10,28 +10,31 @@ import {
 import Logo from '../../../../assets/images/Logo.png'
 import CustomInput from '../../../Components/CustomInput';
 import CustomButton from '../../../Components/CustomButton/CustomButton';
+import { useNavigation } from '@react-navigation/native';
 
 const SignInScreen = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const navigation = useNavigation();
 
   const { height } = useWindowDimensions();
   const OnSignInPressed = () => {
-      console.warn("Sign In Pressed")
+      //validate the mans
+      navigation.navigate('HomeScreen')
   }
 
   const OnForgotPressed = () => {
-      console.warn("Forgot Password Pressed")
+      navigation.navigate('ForgotPassword')
   }
 
   const OnSignInGooglePressed = () => {
       console.warn("Sign In with google")
   }
   const OnCreateAccountPressed = () => {
-      console.warn("Create an account")
+      navigation.navigate('SignUpScreen')
   }
   return (
-    <ScrollView showsVerticalScrollIndicator = {false}>
+    <ScrollView showsVerticalScrollIndicator = {false} style = {{backgroundColor:'#c4f3ff'}}>
     <View style={styles.root}>
       <Image
         source={Logo}
@@ -89,6 +92,7 @@ const styles = StyleSheet.create({
   root: {
     alignItems: 'center',
     padding: 10,
+    backgroundColor:'#c4f3ff'
   },
   logo: {
     width: '70%',

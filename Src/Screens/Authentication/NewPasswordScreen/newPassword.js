@@ -8,22 +8,24 @@ import {
 } from 'react-native';
 import CustomButton from '../../../Components/CustomButton/CustomButton';
 import CustomInput from '../../../Components/CustomInput';
+import { useNavigation } from '@react-navigation/native';
 
 const NewPassword = () => {
   const [code, setCode] = useState('');
   const [password, setPassword] = useState('');
+  const navigation = useNavigation();
 
 
   const OnSubmitPressed = () => {
-      console.warn("Sign In Pressed")
+      navigation.navigate('HomeScreen')
   }
 
   const OnRememberPressed = () => {
-    console.warn("Back to Sign In")
+    navigation.navigate('SignInScreen')
 }
   
   return (
-    <ScrollView showsVerticalScrollIndicator = {false}>
+    <ScrollView showsVerticalScrollIndicator = {false} style = {{backgroundColor:'#c4f3ff'}}>
     <View style={styles.root}>
       <Text style  = {styles.title}>
         Reset Your Password
@@ -66,6 +68,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 10,
     margin:10,
+    backgroundColor:'#c4f3ff',
   },
   law:{
     color:'gray',

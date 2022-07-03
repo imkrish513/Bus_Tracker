@@ -8,22 +8,25 @@ import {
 } from 'react-native';
 import CustomButton from '../../../Components/CustomButton/CustomButton';
 import CustomInput from '../../../Components/CustomInput';
+import { useNavigation } from '@react-navigation/native';
 
 const SignUpScreen = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordR, setPasswordR] = useState('');
+  const navigation = useNavigation();
 
 
-  const OnRegisterPressed = () => {
-      console.warn("Sign In Pressed")
+
+  const OnSignInPressed = () => {
+      navigation.navigate('SignInScreen')
   }
   const OnSignInGooglePressed = () => {
       console.warn("Sign In with google")
   }
-  const OnCreateAccountPressed = () => {
-      console.warn("Create an account")
+  const OnRegisterPressed = () => {
+      navigation.navigate('HomeScreen')
   }
   const Onterms = () => {
       console.warn("Terms of Conditions")
@@ -33,7 +36,7 @@ const SignUpScreen = () => {
   }
   
   return (
-    <ScrollView showsVerticalScrollIndicator = {false}>
+    <ScrollView showsVerticalScrollIndicator = {false} style = {{backgroundColor:'#c4f3ff'}}>
     <View style={styles.root}>
       <Text style  = {styles.title}>
         Create an account
@@ -93,7 +96,7 @@ const SignUpScreen = () => {
 
        <CustomButton 
       text = "Have an account? Sign in"
-      onPress = {OnCreateAccountPressed}
+      onPress = {OnSignInPressed}
       type = 'SECONDARY'
       />
 
@@ -107,6 +110,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 10,
     margin:10,
+    backgroundColor:'#c4f3ff',
   },
   law:{
     color:'gray',

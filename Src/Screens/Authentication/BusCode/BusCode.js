@@ -63,7 +63,7 @@ export default class Bcode extends react.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor:'#c4f3ff',
     alignItems: 'center',
     justifyContent: 'center',
   },
