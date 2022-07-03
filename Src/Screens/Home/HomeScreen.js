@@ -9,10 +9,10 @@ const HomeScreen = ()=> {
     navigation.navigate('SignInScreen')
 }
   return (
-  <View>
-    <Text>hi</Text>
+  <View style = {styles.container}>
+    <Text style = {styles.logout}>Home Screen</Text>
     <CustomButton 
-      text = "Register"
+      text = "Log Out"
       onPress = {HelpMe}
       type = 'PRIMARY'
       />
@@ -23,8 +23,17 @@ const HomeScreen = ()=> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor:'#c4f3ff'
+    backgroundColor:'#c4f3ff',
+    alignItems:'center',
   },
+  logout: {
+    fontSize:24,
+    
+    marginBottom:30,
+    fontWeight:'bold',
+    color:'#051C60',
+    margin:10
+  }
 })
   
 export default HomeScreen
