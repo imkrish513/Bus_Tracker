@@ -31,7 +31,7 @@ const Navigation = ()=> {
         <Stack.Screen name = "SignUpScreen" component={SignUpScreen}/>
         <Stack.Screen name = "ForgotPassword" component={ForgotPassword}/>
         <Stack.Screen name = "NewPassword" component={NewPassword}/>
-        <Stack.Screen name = "BusCode" component={Code}/>
+       
         <Stack.Screen name = "HomeScreen" component={HomeScreen}/>
 
     </Stack.Navigator>

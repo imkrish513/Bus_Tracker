@@ -25,7 +25,7 @@ const SignInScreen = () => {
 
   const OnForgotPressed = () => {
       navigation.navigate('ForgotPassword')
-  }
+  } 
 
   const OnSignInGooglePressed = () => {
       console.warn("Sign In with google")
