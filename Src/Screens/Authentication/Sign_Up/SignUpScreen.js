@@ -9,15 +9,18 @@ import {
 import CustomButton from '../../../Components/CustomButton/CustomButton';
 import CustomInput from '../../../Components/CustomInput';
 import { useNavigation } from '@react-navigation/native';
+import { useForm, Controller } from 'react-hook-form';
 
+const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
 const SignUpScreen = () => {
-  const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [passwordR, setPasswordR] = useState('');
+ // const [username, setUsername] = useState('');
+ // const [email, setEmail] = useState('');
+ // const [password, setPassword] = useState('');
+ // const [passwordR, setPasswordR] = useState('');
   const navigation = useNavigation();
 
-
+  const {control,handleSubmit, watch} = useForm();
+  const pwd = watch('Password');
 
   const OnSignInPressed = () => {
       navigation.navigate('SignInScreen')
@@ -42,41 +45,54 @@ const SignUpScreen = () => {
         Create an account
       </Text>
 
-      <CustomInput
+       <CustomInput
+        name= 'username'
         placeholder="Username"
-        value={username}
-        setValue={setUsername}
+        rules={{required:'Username is required',
+        minLength:{value:3, message:'Username should be a minimum of 3 characters long'},
+        maxLength:{value:20, message:'Username should be a maximum of 20 characters long'}
+        }}
+        control={control}
         secureTextEntry={false}
         color = '#8e8e8e'
       />
 
        <CustomInput
+        name= 'Email'
         placeholder="Email"
-        value={email}
-        setValue={setEmail}
+        rules={{required:'Email is required',pattern:{value:EMAIL_REGEX,message:'Email is Invalid'}}}
+        control={control}
         secureTextEntry={false}
         color = '#8e8e8e'
       />
 
-      <CustomInput
+       <CustomInput
+        name= 'Password'
         placeholder="Password"
-        value={password}
-        setValue={setPassword}
-        secureTextEntry={true}
-        color = '#8e8e8e'
-      />
-      
-      <CustomInput
-        placeholder="Repeat Password"
-        value={passwordR}
-        setValue={setPasswordR}
+        rules={{required:'Password is required',
+        minLength:{value:8, message:'Password should be a minimum of 8 characters long'}
+      }}
+        control={control}
         secureTextEntry={true}
         color = '#8e8e8e'
       />
 
+       <CustomInput
+        name= 'RPassword'
+        placeholder="Repeat Password"
+        rules={{
+        validate:value => value == pwd || 'Password does not match',
+
+        }}
+        control={control}
+        secureTextEntry={true}
+        color = '#8e8e8e'
+      />
+      
+
       <CustomButton 
       text = "Register"
-      onPress = {OnRegisterPressed}
+      onPress = {handleSubmit(OnRegisterPressed)}
       type = 'PRIMARY'
       />
 

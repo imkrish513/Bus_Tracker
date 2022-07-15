@@ -6,24 +6,31 @@ import {
   StyleSheet,
   ScrollView,
   useWindowDimensions,
+  TextInput,
 } from 'react-native';
 import Logo from '../../../../assets/images/Logo.png'
 import CustomInput from '../../../Components/CustomInput';
 import CustomButton from '../../../Components/CustomButton/CustomButton';
 import { useNavigation } from '@react-navigation/native';
+import { useForm, Controller } from 'react-hook-form';
 
 const SignInScreen = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  // const [username, setUsername] = useState('');
+  // const [password, setPassword] = useState('');
   const navigation = useNavigation();
 
   const { height } = useWindowDimensions();
-  const OnSignInPressed = () => {
+
+  const {control,handleSubmit,formState:{errors}} = useForm();
+
+
+  const OnSignInPressed = (data) => {
+    console.log(data)
       //validate the mans
       navigation.navigate('HomeScreen')
   }
 
-  const OnForgotPressed = () => {
+  const OnForgotPressed = () =>  {
       navigation.navigate('ForgotPassword')
   } 
 
@@ -43,24 +50,31 @@ const SignInScreen = () => {
       />
 
       <CustomInput
+        name= 'username'
         placeholder="Username"
-        value={username}
-        setValue={setUsername}
+        rules={{required:'Username is required'}}
+        control={control}
         secureTextEntry={false}
         color = '#8e8e8e'
       />
 
       <CustomInput
+        name= "password"
         placeholder="Password"
-        value={password}
-        setValue={setPassword}
+        rules={{required:'Password is required'}}
+        //For min or max length minLength:{Value:3,message:'die }
+        control={control}
         secureTextEntry={true}
         color = '#8e8e8e'
       />
 
+    
+
+
+
       <CustomButton 
       text = "Sign In"
-      onPress = {OnSignInPressed}
+      onPress = {handleSubmit(OnSignInPressed)}
       type = 'PRIMARY'
       />
 
