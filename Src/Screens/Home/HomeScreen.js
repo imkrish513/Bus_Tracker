@@ -23,7 +23,7 @@ const HomeScreen = ()=> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor:'#c4f3fg', //temp change, change back to last letter to f
+    backgroundColor:'#c4f3ff',
     alignItems:'center',
   },
   logout: {
