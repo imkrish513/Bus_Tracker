@@ -9,12 +9,15 @@ import {
 import CustomButton from '../../../Components/CustomButton/CustomButton';
 import CustomInput from '../../../Components/CustomInput';
 import { useNavigation } from '@react-navigation/native';
+import { useForm } from 'react-hook-form';
+const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
 
 const ForgotPassword = () => {
   const navigation = useNavigation();
 
-  const [email, setEmail] = useState('');
+//  const [email, setEmail] = useState('');
 
+  const {control,handleSubmit} = useForm();
 
   const OnSendPressed = () => {
       navigation.navigate('NewPassword')
@@ -33,9 +36,10 @@ const ForgotPassword = () => {
       </Text>
 
       <CustomInput
+        name= 'Email'
         placeholder="Email"
-        value={email}
-        setValue={setEmail}
+        rules={{required:'Email is required',pattern:{value:EMAIL_REGEX,message:'Email is Invalid'}}}
+        control={control}
         secureTextEntry={false}
         color = '#8e8e8e'
       />
@@ -43,7 +47,7 @@ const ForgotPassword = () => {
 
       <CustomButton 
       text = "Send"
-      onPress = {OnSendPressed}
+      onPress = {handleSubmit(OnSendPressed)}
       type = 'PRIMARY'
       />
 

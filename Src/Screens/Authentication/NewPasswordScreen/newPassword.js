@@ -9,13 +9,15 @@ import {
 import CustomButton from '../../../Components/CustomButton/CustomButton';
 import CustomInput from '../../../Components/CustomInput';
 import { useNavigation } from '@react-navigation/native';
+import {useForm} from 'react-hook-form'
 
 const NewPassword = () => {
-  const [code, setCode] = useState('');
-  const [password, setPassword] = useState('');
+ // const [code, setCode] = useState('');
+ // const [password, setPassword] = useState('');
   const navigation = useNavigation();
+  const {control,handleSubmit,watch} = useForm();
 
-
+const pwd = watch('Password');
   const OnSubmitPressed = () => {
       navigation.navigate('HomeScreen')
   }
@@ -32,25 +34,40 @@ const NewPassword = () => {
       </Text>
 
       <CustomInput
+        name = 'Code'
         placeholder="Enter your confirmation code"
-        value={code}
-        setValue={setCode}
+        rules={{required:'Confirmation code is required'}}
+        control={control}
         secureTextEntry={false}
         color = '#8e8e8e'
       />
 
         <CustomInput
-        placeholder="Enter your new password"
-        value={password}
-        setValue={setPassword}
-        secureTextEntry={false}
+        name= 'Password'
+        placeholder="Password"
+        rules={{required:'Password is required',
+        minLength:{value:8, message:'Password should be a minimum of 8 characters long'}
+      }}
+        control={control}
+        secureTextEntry={true}
         color = '#8e8e8e'
       />
+
+       <CustomInput
+        name= 'RPassword'
+        placeholder="Repeat Password"
+        rules={{
+        validate:value => value == pwd || 'Password does not match',
+        }}
+        control={control}
+        secureTextEntry={true}
+        color = '#8e8e8e'
+      />  
 
 
       <CustomButton 
       text = "Submit"
-      onPress = {OnSubmitPressed}
+      onPress = {handleSubmit(OnSubmitPressed)}
       type = 'PRIMARY'
       />
 

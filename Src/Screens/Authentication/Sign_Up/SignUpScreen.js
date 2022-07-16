@@ -82,7 +82,6 @@ const SignUpScreen = () => {
         placeholder="Repeat Password"
         rules={{
         validate:value => value == pwd || 'Password does not match',
-
         }}
         control={control}
         secureTextEntry={true}
