@@ -1,0 +1,20 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-bustracker-staging-235105-authRole",
+      "UnauthRoleArn": "arn:aws:iam::868490061401:role/amplify-bustracker-staging-235105-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::868490061401:role/amplify-bustracker-staging-235105-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-bustracker-staging-235105-deployment",
+      "UnauthRoleName": "amplify-bustracker-staging-235105-unauthRole",
+      "StackName": "amplify-bustracker-staging-235105",
+      "StackId": "arn:aws:cloudformation:us-east-1:868490061401:stack/amplify-bustracker-staging-235105/d0922c00-0d3d-11ed-9943-12664c339681",
+      "AmplifyAppId": "dtw68q024swe0"
+    },
+    "categories": {
+      "auth": {
+        "BusTracker": {}
+      }
+    }
+  }
+}
